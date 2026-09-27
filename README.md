@@ -29,5 +29,4 @@ This project focused on adding interactive functionality to a pre-designed portf
 **Live Demo:**
 https://fadiasaied.github.io/Portfolio/
 
-**GitHub Repository:**
-https://github.com/FadiaSaied/Portfolio
+
