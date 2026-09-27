@@ -102,7 +102,7 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
   </head>
   <body
-    class="bg-gradient-to-br from-slate-100 via-slate-50 to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-slate-900 dark:text-white transition-colors duration-300"
+    class="font-tajawal bg-gradient-to-br from-slate-100 via-slate-50 to-slate-100 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950 text-slate-900 dark:text-white transition-colors duration-300"
   >
     <!-- Skip to Content Link for Accessibility -->
     <a
@@ -1018,7 +1018,7 @@
             aria-label="فلترة المشاريع"
           >
             <button
-              class="portfolio-filter active px-8 py-3 rounded-xl bg-linear-to-r from-primary to-secondary text-white font-bold transition-all duration-300 hover:shadow-lg hover:shadow-primary/50"
+              class="portfolio-filter activeNavAndTaps px-8 py-3 rounded-xl bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 font-bold transition-all duration-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700"
               data-filter="all"
               aria-pressed="true"
               type="button"
@@ -2322,7 +2322,7 @@
             aria-label="مؤشرات التوصيات"
           >
             <button
-              class="carousel-indicator w-3 h-3 rounded-full bg-slate-400 bg-accent transition-all duration-300 hover:scale-125 cursor-pointer"
+              class="carousel-indicator w-3 h-3 rounded-full bg-slate-400 dark:bg-slate-600 transition-all duration-300 hover:scale-125 cursor-pointer"
               data-index="0"
               role="tab"
               aria-label="التوصية 1"
@@ -3110,7 +3110,7 @@
               </button>
 
               <button
-                class="font-option w-full p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-primary/50 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all text-right group relative overflow-hidden"
+                class="font-option active w-full p-4 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-primary/50 hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-all text-right group relative overflow-hidden"
                 data-font="tajawal"
                 role="radio"
                 aria-checked="true"
@@ -3168,12 +3168,90 @@
               id="theme-colors-grid"
               aria-label="اختيار لون الثيم"
             >
-              <button class="active w-12 h-12 rounded-full cursor-pointer transition-transform hover:scale-110 border-2 border-slate-200 dark:border-slate-700 hover:border-primary shadow-sm" title="Purple Blue" data-primary="#6366f1" data-secondary="#8b5cf6" data-accent="#a855f7" style="background: linear-gradient(135deg,rgb(99, 102, 241),rgb(139, 92, 246));"></button>
-              <button class="w-12 h-12 rounded-full cursor-pointer transition-transform hover:scale-110 border-2 border-slate-200 dark:border-slate-700 hover:border-primary shadow-sm" title="Pink Orange" data-primary="#ec4899" data-secondary="#f97316" data-accent="#fb923c" style="background: linear-gradient(135deg, rgb(236, 72, 153), rgb(249, 115, 22));"></button>
-              <button class="w-12 h-12 rounded-full cursor-pointer transition-transform hover:scale-110 border-2 border-slate-200 dark:border-slate-700 hover:border-primary shadow-sm" title="Green Emerald" data-primary="#10b981" data-secondary="#059669" data-accent="#34d399" style="background: linear-gradient(135deg, rgb(16, 185, 129), rgb(5, 150, 105));"></button>
-              <button class="w-12 h-12 rounded-full cursor-pointer transition-transform hover:scale-110 border-2 border-slate-200 dark:border-slate-700 hover:border-primary shadow-sm" title="Blue Cyan" data-primary="#3b82f6" data-secondary="#06b6d4" data-accent="#22d3ee" style="background: linear-gradient(135deg, rgb(59, 130, 246), rgb(6, 182, 212));"></button>
-              <button class="w-12 h-12 rounded-full cursor-pointer transition-transform hover:scale-110 border-2 border-slate-200 dark:border-slate-700 hover:border-primary shadow-sm" title="Red Rose" data-primary="#ef4444" data-secondary="#f43f5e" data-accent="#fb7185" style="background: linear-gradient(135deg, rgb(239, 68, 68), rgb(244, 63, 94));"></button>
-              <button class="w-12 h-12 rounded-full cursor-pointer transition-transform hover:scale-110 border-2 border-slate-200 dark:border-slate-700 hover:border-primary shadow-sm" title="Amber Orange" data-primary="#f59e0b" data-secondary="#ea580c" data-accent="#fbbf24" style="background: linear-gradient(135deg, rgb(245, 158, 11), rgb(234, 88, 12));"></button>
+              <button
+                class="active w-12 h-12 rounded-full cursor-pointer transition-transform hover:scale-110 border-2 border-slate-200 dark:border-slate-700 hover:border-primary shadow-sm"
+                title="Purple Blue"
+                data-primary="#6366f1"
+                data-secondary="#8b5cf6"
+                data-accent="#a855f7"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    rgb(99, 102, 241),
+                    rgb(139, 92, 246)
+                  );
+                "
+              ></button>
+              <button
+                class="w-12 h-12 rounded-full cursor-pointer transition-transform hover:scale-110 border-2 border-slate-200 dark:border-slate-700 hover:border-primary shadow-sm"
+                title="Pink Orange"
+                data-primary="#ec4899"
+                data-secondary="#f97316"
+                data-accent="#fb923c"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    rgb(236, 72, 153),
+                    rgb(249, 115, 22)
+                  );
+                "
+              ></button>
+              <button
+                class="w-12 h-12 rounded-full cursor-pointer transition-transform hover:scale-110 border-2 border-slate-200 dark:border-slate-700 hover:border-primary shadow-sm"
+                title="Green Emerald"
+                data-primary="#10b981"
+                data-secondary="#059669"
+                data-accent="#34d399"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    rgb(16, 185, 129),
+                    rgb(5, 150, 105)
+                  );
+                "
+              ></button>
+              <button
+                class="w-12 h-12 rounded-full cursor-pointer transition-transform hover:scale-110 border-2 border-slate-200 dark:border-slate-700 hover:border-primary shadow-sm"
+                title="Blue Cyan"
+                data-primary="#3b82f6"
+                data-secondary="#06b6d4"
+                data-accent="#22d3ee"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    rgb(59, 130, 246),
+                    rgb(6, 182, 212)
+                  );
+                "
+              ></button>
+              <button
+                class="w-12 h-12 rounded-full cursor-pointer transition-transform hover:scale-110 border-2 border-slate-200 dark:border-slate-700 hover:border-primary shadow-sm"
+                title="Red Rose"
+                data-primary="#ef4444"
+                data-secondary="#f43f5e"
+                data-accent="#fb7185"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    rgb(239, 68, 68),
+                    rgb(244, 63, 94)
+                  );
+                "
+              ></button>
+              <button
+                class="w-12 h-12 rounded-full cursor-pointer transition-transform hover:scale-110 border-2 border-slate-200 dark:border-slate-700 hover:border-primary shadow-sm"
+                title="Amber Orange"
+                data-primary="#f59e0b"
+                data-secondary="#ea580c"
+                data-accent="#fbbf24"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    rgb(245, 158, 11),
+                    rgb(234, 88, 12)
+                  );
+                "
+              ></button>
             </div>
           </div>
         </div>

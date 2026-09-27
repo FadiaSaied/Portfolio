@@ -13,6 +13,7 @@ let btnNext = document.getElementById("next-testimonial");
 let btnPrev = document.getElementById("prev-testimonial");
 let testimonialCard = document.querySelectorAll(".testimonial-card");
 let currentIndex = 0;
+let maxIndex = 3;
 let carouselIndicator = document.querySelectorAll(".carousel-indicator");
 let colorTheme = document.querySelectorAll("#theme-colors-grid button");
 
@@ -22,8 +23,6 @@ scrollToTop();
 toggleSidebar();
 chooseFontToSite();
 selectedCards();
-carousel();
-carouselIndicators();
 changeColorTheme();
 
 function toggleTheme() {
@@ -47,7 +46,7 @@ function activeLinkOnscroll() {
   window.addEventListener("scroll", function () {
     for (let i = 0; i < sections.length; i++) {
       let id = sections[i].getAttribute("id");
-      if (window.scrollY >= sections[i].offsetTop) {
+      if (window.scrollY > sections[i].offsetTop - 90) {
         for (let j = 0; j < ourLinks.length; j++) {
           ourLinks[j].classList.remove("active");
           if (ourLinks[j].getAttribute("href") === `#${id}`) {
@@ -102,6 +101,11 @@ function chooseFontToSite() {
       document.body.classList.add(`font-${getFont}`);
 
       localStorage.setItem("font", `${getFont}`);
+      chooseFont.forEach((btn) => {
+        btn.classList.remove("active");
+      });
+
+      e.currentTarget.classList.add("active");
     });
   }
 }
@@ -109,7 +113,18 @@ function chooseFontToSite() {
 let fontSaved = localStorage.getItem("font");
 
 if (fontSaved) {
+  document.body.classList.remove(
+    "font-cairo",
+    "font-tajawal",
+    "font-alexandria",
+  );
   document.body.classList.add(`font-${fontSaved}`);
+  chooseFont.forEach((btn) => {
+    btn.classList.remove("active");
+    if (btn.dataset.font === fontSaved) {
+      btn.classList.add("active");
+    }
+  });
 }
 
 function changeColorTheme() {
@@ -126,6 +141,10 @@ function changeColorTheme() {
       localStorage.setItem("colorprimary", colorPrimary);
       localStorage.setItem("colorsecondary", colorSecondary);
       localStorage.setItem("coloraccent", colorAccent);
+      colorTheme.forEach((btn) => {
+        btn.classList.remove("activeColor");
+      });
+      colorTheme[i].classList.add("activeColor");
     });
   }
 }
@@ -138,6 +157,13 @@ if (colorPrimarySaved && colorSecondarySaved && colorAccentSaved) {
   html.style.setProperty("--color-primary", colorPrimarySaved);
   html.style.setProperty("--color-secondary", colorSecondarySaved);
   html.style.setProperty("--color-accent", colorAccentSaved);
+   colorTheme.forEach((btn) => {
+         btn.classList.remove('activeColor')
+        if(btn.dataset.primary === colorPrimarySaved && btn.dataset.secondary === colorSecondarySaved && btn.dataset.accent === colorAccentSaved){
+          btn.classList.add('activeColor')
+        }
+     
+      });
 }
 
 function selectedCards() {
@@ -156,46 +182,51 @@ function selectedCards() {
           cards[j].classList.remove("hidden");
         }
       }
+      btnCards.forEach((btn) => btn.classList.remove("activeNavAndTaps"));
+
+      btn.classList.add("activeNavAndTaps");
     });
   }
 }
 
 function carousel() {
-  btnNext.addEventListener("click", function () {
-    if (currentIndex < testimonialCard.length - 3) {
-      currentIndex++;
-      testimonialCard[currentIndex].scrollIntoView({
-        inline: "start",
-        behavior: "smooth",
-      });
-    }
+  testimonialCard[currentIndex].scrollIntoView({
+    behavior: "smooth",
+    inline: "start",
   });
-
-  btnPrev.addEventListener("click", function () {
-    if (currentIndex > 0) {
-      currentIndex--;
-      testimonialCard[currentIndex].scrollIntoView({
-        inline: "start",
-        behavior: "smooth",
-      });
-    }
-  });
+  removeActive();
+  carouselIndicator[currentIndex].classList.add("activeIndicator");
 }
 
-function carouselIndicators() {
-  for (let i = 0; i < carouselIndicator.length; i++) {
-    carouselIndicator[i].addEventListener("click", function () {
-      for (let j = 0; j < carouselIndicator.length; j++) {
-        carouselIndicator[j].classList.remove("active");
-      }
-      carouselIndicator[i].classList.add("active");
-  
-        currentIndex = i;
-        testimonialCard[currentIndex].scrollIntoView({
-          inline: "start",
-          behavior: "smooth",
-        });
-      
-    });
+btnNext.addEventListener("click", function () {
+  if (currentIndex < maxIndex) {
+    currentIndex++;
+  } else {
+    currentIndex = 0;
+  }
+  carousel();
+});
+
+btnPrev.addEventListener("click", function () {
+  if (currentIndex > 0) {
+    currentIndex--;
+  } else {
+    currentIndex = 3;
+  }
+  carousel();
+});
+
+carouselIndicator.forEach((btn) => {
+  btn.addEventListener("click", function () {
+    currentIndex = btn.dataset.index;
+    carousel();
+    removeActive();
+    btn.classList.add("activeIndicator");
+  });
+});
+
+function removeActive() {
+  for (let j = 0; j < carouselIndicator.length; j++) {
+    carouselIndicator[j].classList.remove("activeIndicator");
   }
 }
